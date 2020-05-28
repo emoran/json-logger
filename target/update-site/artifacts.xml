@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='file:/Users/edgarm/Documents/repositories/emoran/github/json-logger/json-logger-module/target/update-site/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1590691008825'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='4'>
+    <artifact classifier='osgi.bundle' id='org.mule.tooling.ui.contribution.json-logger.3.5.0' version='1.1.1.202005281435'>
+      <properties size='3'>
+        <property name='artifact.size' value='16150221'/>
+        <property name='download.size' value='16150221'/>
+        <property name='download.md5' value='f322fbbe66b8672fd446639b9dd4576a'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.mule.tooling.ui.contribution.json-logger.3.5.0' version='1.1.1.202005281436'>
+      <properties size='3'>
+        <property name='artifact.size' value='16150355'/>
+        <property name='download.size' value='16150355'/>
+        <property name='download.md5' value='955edcf67863a6517a35d3f4d1c38c14'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.mule.tooling.ui.extension.json-logger-module.3.5.0' version='1.1.1.202005281436'>
+      <properties size='4'>
+        <property name='artifact.size' value='664'/>
+        <property name='download.size' value='664'/>
+        <property name='download.md5' value='f0385f8078ddf908e31843472c64ef2b'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.mule.tooling.ui.extension.json-logger-module.3.5.0' version='1.1.1.202005281435'>
+      <properties size='4'>
+        <property name='artifact.size' value='664'/>
+        <property name='download.size' value='664'/>
+        <property name='download.md5' value='61710e27b8b7b47a9fc621f675c3748d'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

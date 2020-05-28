@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/json-logger" prefix="json-logger">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="JSON Logger" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/json-logger/abstractJson-loggerConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="JSON Logger: Logger with Anypoint MQ Configuration" description="Global Logger with Anypoint MQ Configuration configuration information." icon="icons/theme.classic/json-logger-connector-small.png" localId="json-logger-with-mq-config" image="icons/theme.classic/json-logger-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/json-logger/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Json-logger configuration properties.">
+      <group id="json-loggerGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="anypoint MQ Configuration" caption="Anypoint MQ Configuration">
+        <string defaultValue="https://mq-us-east-1.anypoint.mulesoft.com/api/v1" name="mqEndpoint" caption="Mq Endpoint" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string name="clientAppId" caption="Client App Id" description="" supportsExpressions="false" required="true" javaType="java.lang.String"></string>
+        <string name="clientSecret" caption="Client Secret" description="" supportsExpressions="false" required="true" javaType="java.lang.String"></string>
+        <string name="destination" caption="Destination" description="" supportsExpressions="false" required="true" javaType="java.lang.String"></string>
+      </group>
+      <group id="jSON Output" caption="JSON Output">
+        <boolean defaultValue="true" name="prettyPrint" caption="Pretty Print" description="" supportsExpressions="false" required="false" javaType="java.lang.Boolean"></boolean>
+      </group>
+      <group id="default expressions" caption="Default expressions">
+        <string defaultValue="#[new org.joda.time.DateTime().withZone(org.joda.time.DateTimeZone.forID(&quot;${json.logger.timezone}&quot;)).toString(&quot;${json.logger.dateformat}&quot;)]" name="timestamp" caption="Timestamp" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="#[(message.inboundProperties.'x-root-correlation-id' != null)?message.inboundProperties.'x-root-correlation-id':message.id]" name="rootCorrelationId" caption="Root Correlation Id" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="#[message.id]" name="correlationId" caption="Correlation Id" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+      <group id="global" caption="Global">
+        <string defaultValue="${json.logger.application.name}" name="applicationName" caption="Application Name" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="${json.logger.application.version}" name="applicationVersion" caption="Application Version" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="${mule.env}" name="environment" caption="Environment" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="JSON Logger: Logger Configuration" description="Global Logger Configuration configuration information." icon="icons/theme.classic/json-logger-connector-small.png" localId="json-logger-config" image="icons/theme.classic/json-logger-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/json-logger/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Json-logger configuration properties.">
+      <group id="json-loggerGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="jSON Output" caption="JSON Output">
+        <boolean defaultValue="true" name="prettyPrint" caption="Pretty Print" description="" supportsExpressions="false" required="false" javaType="java.lang.Boolean"></boolean>
+      </group>
+      <group id="default expressions" caption="Default expressions">
+        <string defaultValue="#[new org.joda.time.DateTime().withZone(org.joda.time.DateTimeZone.forID(&quot;${json.logger.timezone}&quot;)).toString(&quot;${json.logger.dateformat}&quot;)]" name="timestamp" caption="Timestamp" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="#[(message.inboundProperties.'x-root-correlation-id' != null)?message.inboundProperties.'x-root-correlation-id':message.id]" name="rootCorrelationId" caption="Root Correlation Id" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="#[message.id]" name="correlationId" caption="Correlation Id" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+      <group id="global" caption="Global">
+        <string defaultValue="${json.logger.application.name}" name="applicationName" caption="Application Name" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="${json.logger.application.version}" name="applicationVersion" caption="Application Version" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="${mule.env}" name="environment" caption="Environment" description="" supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractjson-loggerconnectorgeneric" description="Interact with Json-logger." icon="icons/theme.classic/json-logger-connector-small.png" localId="abstractJson-loggerConnectorGeneric" image="icons/theme.classic/json-logger-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractJson-loggerConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="$http://www.mulesoft.org/schema/mule/json-logger/json-logger-config,http://www.mulesoft.org/schema/mule/json-logger/json-logger-with-mq-config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.json-logger" caption="JSON Logger" description="" icon="icons/theme.classic/json-logger-connector-small.png" localId="json-logger-connector" image="icons/theme.classic/json-logger-connector-large.png" extends="http://www.mulesoft.org/schema/mule/json-logger/abstractJson-loggerConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="json-loggerConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Json-logger operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/json-logger/abstractJson-loggerConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/json-logger/logger" modeLabel="Logger"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="void" caption="Logger" icon="icons/theme.classic/json-logger-connector-small.png" localId="logger" image="icons/theme.classic/json-logger-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/json-logger/abstractJson-loggerConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string defaultValue="#[flowVars['timerVariable']]" name="timerVariable" caption="Timer Variable" description="" required="false" javaType="java.lang.String"></string>
+        <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/json-logger/logger-json" caption="Logger Json Reference" required="true" javaType="org.mule.modules.pojos.LoggerProcessor"></childElement>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <nested xmlname="logger-json" caption="" description="" localId="logger-json" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Logger Json Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <enum defaultValue="INFO" allowsCustom="true" name="priority" caption="Priority" description="" supportsExpressions="true" required="false" controlled="complex" javaType="org.mule.modules.pojos.LoggerProcessor.Priority">
+      <option value="DEBUG"></option>
+      <option value="ERROR"></option>
+      <option value="INFO"></option>
+      <option value="WARN"></option>
+    </enum>
+    <enum defaultValue="START" allowsCustom="true" name="tracePoint" caption="Trace Point" description="" supportsExpressions="true" required="false" controlled="complex" javaType="org.mule.modules.pojos.LoggerProcessor.TracePoint">
+      <option value="AFTER_API_OR_BACKEND"></option>
+      <option value="AFTER_TRANSFORM"></option>
+      <option value="BEFORE_API_OR_BACKEND"></option>
+      <option value="BEFORE_TRANSFORM"></option>
+      <option value="END"></option>
+      <option value="EXCEPTION"></option>
+      <option value="START"></option>
+    </enum>
+    <string defaultValue="" name="message" caption="Message" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+</namespace>
